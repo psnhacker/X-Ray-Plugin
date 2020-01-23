@@ -138,31 +138,117 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = respawn")) Respawn(data);
             foreach (string str in data) if (str.Contains("section_name = inventory_box")) Inventory_box(data);
 
-            foreach (string str in data) if (str.Contains("section_name = dog_weak")) Dog_weak(data);
-            foreach (string str in data) if (str.Contains("section_name = boar_weak")) Boar_weak(data);
-            foreach (string str in data) if (str.Contains("section_name = flesh_weak")) Flesh_weak(data);
-            foreach (string str in data) if (str.Contains("section_name = dog_strong")) Dog_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = dog_normal")) Dog_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = pseudodog_weak")) Pseudodog_weak(data);
-            foreach (string str in data) if (str.Contains("section_name = boar_normal")) Boar_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = bloodsucker_normal")) Bloodsucker_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = bloodsucker_strong")) Bloodsucker_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = boar_strong")) Boar_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = flesh_normal")) Flesh_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = gigant_normal")) Gigant_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = gigant_strong")) Gigant_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = snork_jumper")) Snork_jumper(data);
-            foreach (string str in data) if (str.Contains("section_name = snork_normal")) Snork_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = snork_outdoor")) Snork_outdoor(data);
-            foreach (string str in data) if (str.Contains("section_name = snork_strong")) Snork_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = snork_weak")) Snork_weak(data);
-            foreach (string str in data) if (str.Contains("section_name = psy_dog")) Psy_dog(data);
-            foreach (string str in data) if (str.Contains("section_name = psy_dog_radar")) Psy_dog_radar(data);
-            foreach (string str in data) if (str.Contains("section_name = tushkano_normal")) Tushkano_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = pseudodog_normal")) Pseudodog_normal(data);
-            foreach (string str in data) if (str.Contains("section_name = pseudodog_strong")) Pseudodog_strong(data);
-            foreach (string str in data) if (str.Contains("section_name = gunslinger_flash")) Punslinger_flash(data);
-            foreach (string str in data) if (str.Contains("section_name = controller_tubeman")) Controller_tubeman(data);
+            foreach (string str in data) if (str.Contains("section_name = dog_weak"))                   C_Base_Monster(data, "dog_weak");
+            foreach (string str in data) if (str.Contains("section_name = boar_weak"))                  C_Base_Monster(data, "boar_weak");
+            foreach (string str in data) if (str.Contains("section_name = flesh_weak"))                 C_Base_Monster(data, "flesh_weak");
+            foreach (string str in data) if (str.Contains("section_name = dog_strong"))                 C_Base_Monster(data, "dog_strong");
+            foreach (string str in data) if (str.Contains("section_name = dog_normal"))                 C_Base_Monster(data, "dog_normal");
+            foreach (string str in data) if (str.Contains("section_name = pseudodog_weak"))             C_Base_Monster(data, "pseudodog_weak");
+            foreach (string str in data) if (str.Contains("section_name = boar_normal"))                C_Base_Monster(data, "boar_normal");
+            foreach (string str in data) if (str.Contains("section_name = bloodsucker_normal"))         C_Base_Monster(data, "bloodsucker_normal");
+            foreach (string str in data) if (str.Contains("section_name = bloodsucker_strong"))         C_Base_Monster(data, "bloodsucker_strong");
+            foreach (string str in data) if (str.Contains("section_name = boar_strong"))                C_Base_Monster(data, "boar_strong");
+            foreach (string str in data) if (str.Contains("section_name = flesh_normal"))               C_Base_Monster(data, "flesh_normal");
+            foreach (string str in data) if (str.Contains("section_name = gigant_normal"))              C_Base_Monster(data, "gigant_normal");
+            foreach (string str in data) if (str.Contains("section_name = gigant_strong"))              C_Base_Monster(data, "gigant_strong");
+            foreach (string str in data) if (str.Contains("section_name = snork_jumper"))               C_Base_Monster(data, "snork_jumper");
+            foreach (string str in data) if (str.Contains("section_name = snork_normal"))               C_Base_Monster(data, "snork_normal");
+            foreach (string str in data) if (str.Contains("section_name = snork_outdoor"))              C_Base_Monster(data, "snork_outdoor");
+            foreach (string str in data) if (str.Contains("section_name = snork_strong"))               C_Base_Monster(data, "snork_strong");
+            foreach (string str in data) if (str.Contains("section_name = snork_weak"))                 C_Base_Monster(data, "snork_weak");
+            foreach (string str in data) if (str.Contains("section_name = psy_dog"))                    C_Base_Monster(data, "psy_dog");
+            foreach (string str in data) if (str.Contains("section_name = psy_dog_radar"))              C_Base_Monster(data, "psy_dog_radar");
+            foreach (string str in data) if (str.Contains("section_name = tushkano_normal"))            C_Base_Monster(data, "tushkano_normal");
+            foreach (string str in data) if (str.Contains("section_name = pseudodog_normal"))           C_Base_Monster(data, "pseudodog_normal");
+            foreach (string str in data) if (str.Contains("section_name = pseudodog_strong"))           C_Base_Monster(data, "pseudodog_strong");
+            foreach (string str in data) if (str.Contains("section_name = gunslinger_flash"))           C_Base_Monster(data, "gunslinger_flash");
+            foreach (string str in data) if (str.Contains("section_name = controller_tubeman"))         C_Base_Monster(data, "controller_tubeman");
+
+
+            foreach (string str in data) if (str.Contains("section_name = bread"))                      C_Base_Item(data, "bread");
+            foreach (string str in data) if (str.Contains("section_name = af_ameba_mica"))              C_Base_Item(data, "af_ameba_mica");
+            foreach (string str in data) if (str.Contains("section_name = af_ameba_slug"))              C_Base_Item(data, "af_ameba_slug");
+            foreach (string str in data) if (str.Contains("section_name = af_dummy_glassbeads"))        C_Base_Item(data, "af_dummy_glassbeads");
+            foreach (string str in data) if (str.Contains("section_name = af_dummy_pellicle"))          C_Base_Item(data, "af_dummy_pellicle");
+            foreach (string str in data) if (str.Contains("section_name = af_dummy_spring"))            C_Base_Item(data, "af_dummy_spring");
+            foreach (string str in data) if (str.Contains("section_name = af_electra_moonlight"))       C_Base_Item(data, "af_electra_moonlight");
+            foreach (string str in data) if (str.Contains("section_name = af_fireball"))                C_Base_Item(data, "af_fireball");
+            foreach (string str in data) if (str.Contains("section_name = af_fuzz_kolobok"))            C_Base_Item(data, "af_fuzz_kolobok");
+            foreach (string str in data) if (str.Contains("section_name = af_gold_fish"))               C_Base_Item(data, "af_gold_fish");
+            foreach (string str in data) if (str.Contains("section_name = af_night_star"))              C_Base_Item(data, "af_night_star");
+            foreach (string str in data) if (str.Contains("section_name = af_rusty_sea-urchin"))        C_Base_Item(data, "af_rusty_sea-urchin");
+            foreach (string str in data) if (str.Contains("section_name = ammo_11.43x23_hydro"))        C_Base_Item(data, "ammo_11.43x23_hydro");
+            foreach (string str in data) if (str.Contains("section_name = ammo_12x76_dart"))            C_Base_Item(data, "ammo_12x76_dart");
+            foreach (string str in data) if (str.Contains("section_name = ammo_12x76_zhekan"))          C_Base_Item(data, "ammo_12x76_zhekan");
+            foreach (string str in data) if (str.Contains("section_name = ammo_5.45x39_ap"))            C_Base_Item(data, "ammo_5.45x39_ap");
+            foreach (string str in data) if (str.Contains("section_name = ammo_5.56x45_ap"))            C_Base_Item(data, "ammo_5.56x45_ap");
+            foreach (string str in data) if (str.Contains("section_name = ammo_5.56x45_ss190"))         C_Base_Item(data, "ammo_5.56x45_ss190");
+            foreach (string str in data) if (str.Contains("section_name = ammo_9x19_pbp"))              C_Base_Item(data, "ammo_9x19_pbp");
+            foreach (string str in data) if (str.Contains("section_name = ammo_9x39_pab9"))             C_Base_Item(data, "ammo_9x39_pab9");
+            foreach (string str in data) if (str.Contains("section_name = ammo_og-7b"))                 C_Base_Item(data, "ammo_og-7b");
+            foreach (string str in data) if (str.Contains("section_name = ammo_vog-25"))                C_Base_Item(data, "ammo_vog-25");
+            foreach (string str in data) if (str.Contains("section_name = bread_a"))                    C_Base_Item(data, "bread_a");
+            foreach (string str in data) if (str.Contains("section_name = dolg_outfit"))                C_Base_Item(data, "dolg_outfit");
+            foreach (string str in data) if (str.Contains("section_name = exo_outfit"))                 C_Base_Item(data, "exo_outfit");
+            foreach (string str in data) if (str.Contains("section_name = decoder"))                    C_Base_Item(data, "decoder");
+            foreach (string str in data) if (str.Contains("section_name = military_outfit"))            C_Base_Item(data, "military_outfit");
+            foreach (string str in data) if (str.Contains("section_name = monolit_outfit"))             C_Base_Item(data, "monolit_outfit");
+            foreach (string str in data) if (str.Contains("section_name = medkit_scientic"))            C_Base_Item(data, "medkit_scientic");
+            foreach (string str in data) if (str.Contains("section_name = wpn_abakan"))                 C_Base_Item(data, "wpn_abakan");
+            foreach (string str in data) if (str.Contains("section_name = wpn_ak74"))                   C_Base_Item(data, "wpn_ak74");
+            foreach (string str in data) if (str.Contains("section_name = wpn_ak74_m1"))                C_Base_Item(data, "wpn_ak74_m1");
+            foreach (string str in data) if (str.Contains("section_name = wpn_binoc"))                  C_Base_Item(data, "wpn_binoc");
+            foreach (string str in data) if (str.Contains("section_name = wpn_groza"))                  C_Base_Item(data, "wpn_groza");
+            foreach (string str in data) if (str.Contains("section_name = wpn_lr300"))                  C_Base_Item(data, "wpn_lr300");
+            foreach (string str in data) if (str.Contains("section_name = wpn_lr300_m1"))               C_Base_Item(data, "wpn_lr300_m1");
+            foreach (string str in data) if (str.Contains("section_name = wpn_mp5"))                    C_Base_Item(data, "wpn_mp5");
+            foreach (string str in data) if (str.Contains("section_name = wpn_rg-6"))                   C_Base_Item(data, "wpn_rg-6");
+            foreach (string str in data) if (str.Contains("section_name = wpn_rpg7"))                   C_Base_Item(data, "wpn_rpg7");
+            foreach (string str in data) if (str.Contains("section_name = wpn_vintorez"))               C_Base_Item(data, "wpn_vintorez");
+            foreach (string str in data) if (str.Contains("section_name = guitar_a"))                   C_Base_Item(data, "guitar_a");
+            foreach (string str in data) if (str.Contains("section_name = pri_decoder_documents"))      C_Base_Item(data, "pri_decoder_documents");
+            foreach (string str in data) if (str.Contains("section_name = svoboda_heavy_outfit"))       C_Base_Item(data, "svoboda_heavy_outfit");
+            foreach (string str in data) if (str.Contains("section_name = svoboda_light_outfit"))       C_Base_Item(data, "svoboda_light_outfit");
+            foreach (string str in data) if (str.Contains("section_name = hunters_toz"))                C_Base_Item(data, "hunters_toz");
+            foreach (string str in data) if (str.Contains("section_name = specops_outfit"))             C_Base_Item(data, "specops_outfit");
+            foreach (string str in data) if (str.Contains("section_name = stalker_outfit"))             C_Base_Item(data, "stalker_outfit");
+            foreach (string str in data) if (str.Contains("section_name = grenade_rgd5"))               C_Base_Item(data, "grenade_rgd5");
+            foreach (string str in data) if (str.Contains("section_name = killer_outfit"))              C_Base_Item(data, "killer_outfit");
+            foreach (string str in data) if (str.Contains("section_name = hand_radio"))                 C_Base_Item(data, "hand_radio");
+            foreach (string str in data) if (str.Contains("section_name = quest_case_02"))              C_Base_Item(data, "quest_case_02");
+            foreach (string str in data) if (str.Contains("section_name = dar_document4"))              C_Base_Item(data, "dar_document4");
+            foreach (string str in data) if (str.Contains("section_name = ammo_9x19_fmj"))              C_Base_Item(data, "ammo_9x19_fmj");
+            foreach (string str in data) if (str.Contains("section_name = bandit_outfit"))              C_Base_Item(data, "bandit_outfit");
+            foreach (string str in data) if (str.Contains("section_name = wpn_walther"))                C_Base_Item(data, "wpn_walther");
+            foreach (string str in data) if (str.Contains("section_name = medkit_army"))                C_Base_Item(data, "medkit_army");
+            foreach (string str in data) if (str.Contains("section_name = quest_case_01"))              C_Base_Item(data, "quest_case_01");
+            foreach (string str in data) if (str.Contains("section_name = conserva"))                   C_Base_Item(data, "conserva");
+            foreach (string str in data) if (str.Contains("section_name = vodka"))                      C_Base_Item(data, "vodka");
+            foreach (string str in data) if (str.Contains("section_name = energy_drink"))               C_Base_Item(data, "energy_drink");
+            foreach (string str in data) if (str.Contains("section_name = kolbasa"))                    C_Base_Item(data, "kolbasa");
+            foreach (string str in data) if (str.Contains("section_name = wpn_ak74u"))                  C_Base_Item(data, "wpn_ak74u");
+            foreach (string str in data) if (str.Contains("section_name = ammo_9x18_fmj"))              C_Base_Item(data, "ammo_9x18_fmj");
+            foreach (string str in data) if (str.Contains("section_name = wpn_pm"))                     C_Base_Item(data, "wpn_pm");
+            foreach (string str in data) if (str.Contains("section_name = ammo_9x18_pmm"))              C_Base_Item(data, "ammo_9x18_pmm");
+            foreach (string str in data) if (str.Contains("section_name = bandage"))                    C_Base_Item(data, "bandage");
+            foreach (string str in data) if (str.Contains("section_name = af_blood"))                   C_Base_Item(data, "af_blood");
+            foreach (string str in data) if (str.Contains("section_name = wpn_bm16"))                   C_Base_Item(data, "wpn_bm16");
+            foreach (string str in data) if (str.Contains("section_name = ammo_12x70_buck"))            C_Base_Item(data, "ammo_12x70_buck");
+            foreach (string str in data) if (str.Contains("section_name = af_medusa"))                  C_Base_Item(data, "af_medusa");
+            foreach (string str in data) if (str.Contains("section_name = outfit_bandit_m1"))           C_Base_Item(data, "outfit_bandit_m1");
+            foreach (string str in data) if (str.Contains("section_name = af_electra_flash"))           C_Base_Item(data, "af_electra_flash");
+            foreach (string str in data) if (str.Contains("section_name = af_cristall_flower"))         C_Base_Item(data, "af_cristall_flower");
+            foreach (string str in data) if (str.Contains("section_name = af_electra_sparkler"))        C_Base_Item(data, "af_electra_sparkler");
+            foreach (string str in data) if (str.Contains("section_name = af_dummy_battery"))           C_Base_Item(data, "af_dummy_battery");
+            foreach (string str in data) if (str.Contains("section_name = af_dummy_dummy"))             C_Base_Item(data, "af_dummy_dummy");
+            foreach (string str in data) if (str.Contains("section_name = af_gravi"))                   C_Base_Item(data, "af_gravi");
+            foreach (string str in data) if (str.Contains("section_name = af_mincer_meat"))             C_Base_Item(data, "af_mincer_meat");
+            foreach (string str in data) if (str.Contains("section_name = af_vyvert"))                  C_Base_Item(data, "af_vyvert");
+            foreach (string str in data) if (str.Contains("section_name = ammo_11.43x23_fmj"))          C_Base_Item(data, "ammo_11.43x23_fmj");
+            foreach (string str in data) if (str.Contains("section_name = ammo_5.45x39_fmj"))           C_Base_Item(data, "ammo_5.45x39_fmj");
+            foreach (string str in data) if (str.Contains("section_name = antirad"))                    C_Base_Item(data, "antirad");
+            foreach (string str in data) if (str.Contains("section_name = grenade_f1"))                 C_Base_Item(data, "grenade_f1");
+
 
             foreach (string str in data) if (str.Contains("section_name = zone_mosquito_bald_weak")) Zone_mosquito_bald_weak(data);
             foreach (string str in data) if (str.Contains("section_name = zone_radioactive_killing")) Zone_radioactive_killing(data);
@@ -205,97 +291,14 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = zone_zharka_static_weak")) Zone_zharka_static_weak(data);
             foreach (string str in data) if (str.Contains("section_name = fireball_zone")) Fireball_zone(data);
 
-            foreach (string str in data) if (str.Contains("section_name = bread")) Bread(data);
-            foreach (string str in data) if (str.Contains("section_name = af_ameba_mica")) Af_ameba_mica(data);
-            foreach (string str in data) if (str.Contains("section_name = af_ameba_slug")) Af_ameba_slug(data);
-            foreach (string str in data) if (str.Contains("section_name = af_dummy_glassbeads")) Af_dummy_glassbeads(data);
-            foreach (string str in data) if (str.Contains("section_name = af_dummy_pellicle")) Af_dummy_pellicle(data);
-            foreach (string str in data) if (str.Contains("section_name = af_dummy_spring")) Af_dummy_spring(data);
-            foreach (string str in data) if (str.Contains("section_name = af_electra_moonlight")) Af_electra_moonlight(data);
-            foreach (string str in data) if (str.Contains("section_name = af_fireball")) Af_fireball(data);
-            foreach (string str in data) if (str.Contains("section_name = af_fuzz_kolobok")) Af_fuzz_kolobok(data);
-            foreach (string str in data) if (str.Contains("section_name = af_gold_fish")) Af_gold_fish(data);
-            foreach (string str in data) if (str.Contains("section_name = af_night_star")) Af_night_star(data);
-            foreach (string str in data) if (str.Contains("section_name = af_rusty_sea-urchin")) Af_rusty_sea_urchin(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_11.43x23_hydro")) Ammo_11_43x23_hydro(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_12x76_dart")) Ammo_12x76_dart(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_12x76_zhekan")) Ammo_12x76_zhekan(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_5.45x39_ap")) Ammo_5_45x39_ap(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_5.56x45_ap")) Ammo_5_56x45_ap(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_5.56x45_ss190")) Ammo_5_56x45_ss190(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_9x19_pbp")) Ammo_9x19_pbp(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_9x39_pab9")) Ammo_9x39_pab9(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_og-7b")) Ammo_og_7b(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_vog-25")) Ammo_vog_25(data);
-            foreach (string str in data) if (str.Contains("section_name = bread_a")) Bread_a(data);
-            foreach (string str in data) if (str.Contains("section_name = dolg_outfit")) Dolg_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = exo_outfit")) Exo_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = decoder")) Decoder(data);
-            foreach (string str in data) if (str.Contains("section_name = military_outfit")) Military_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = monolit_outfit")) Monolit_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = medkit_scientic")) Medkit_scientic(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_abakan")) Wpn_abakan(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_ak74")) Wpn_ak74(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_ak74_m1")) Wpn_ak74_m1(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_binoc")) Wpn_binoc(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_groza")) Wpn_groza(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_lr300")) Wpn_lr300(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_lr300_m1")) Wpn_lr300_m1(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_mp5")) Wpn_mp5(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_rg-6")) Wpn_rg_6(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_rpg7")) Wpn_rpg7(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_vintorez")) Wpn_vintorez(data);
-            foreach (string str in data) if (str.Contains("section_name = guitar_a")) Guitar_a(data);
-            foreach (string str in data) if (str.Contains("section_name = pri_decoder_documents")) Pri_decoder_documents(data);
-            foreach (string str in data) if (str.Contains("section_name = svoboda_heavy_outfit")) Svoboda_heavy_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = svoboda_light_outfit")) Svoboda_light_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = hunters_toz")) Hunters_toz(data);
-            foreach (string str in data) if (str.Contains("section_name = specops_outfit")) Specops_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = stalker_outfit")) Stalker_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = grenade_rgd5")) Grenade_rgd5(data);
-            foreach (string str in data) if (str.Contains("section_name = killer_outfit")) Killer_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = hand_radio")) Hand_radio(data);
-            foreach (string str in data) if (str.Contains("section_name = quest_case_02")) Quest_case_02(data);
-            foreach (string str in data) if (str.Contains("section_name = dar_document4")) Bar_document4(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_9x19_fmj")) Ammo_9x19_fmj(data);
-            foreach (string str in data) if (str.Contains("section_name = bandit_outfit")) Bandit_outfit(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_walther")) Wpn_walther(data);
-            foreach (string str in data) if (str.Contains("section_name = medkit_army")) Medkit_army(data);
-            foreach (string str in data) if (str.Contains("section_name = quest_case_01")) Quest_case_01(data);
-            foreach (string str in data) if (str.Contains("section_name = conserva")) Conserva(data);
-            foreach (string str in data) if (str.Contains("section_name = vodka")) Vodka(data);
-            foreach (string str in data) if (str.Contains("section_name = energy_drink")) Energy_drink(data);
-            foreach (string str in data) if (str.Contains("section_name = kolbasa")) Kolbasa(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_ak74u")) Wpn_ak74u(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_9x18_fmj")) Ammo_9x18_fmj(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_pm")) Wpn_pm(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_9x18_pmm")) Ammo_9x18_pmm(data);
-            foreach (string str in data) if (str.Contains("section_name = bandage")) Bandage(data);
-            foreach (string str in data) if (str.Contains("section_name = af_blood")) Af_blood(data);
-            foreach (string str in data) if (str.Contains("section_name = wpn_bm16")) Wpn_bm16(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_12x70_buck")) Ammo_12x70_buck(data);
-            foreach (string str in data) if (str.Contains("section_name = medkit") && !str.Contains("section_name = medkit_army")) Medkit(data);
-            foreach (string str in data) if (str.Contains("section_name = af_medusa")) Af_medusa(data);
-            foreach (string str in data) if (str.Contains("section_name = outfit_bandit_m1")) Outfit_bandit_m1(data);
-            foreach (string str in data) if (str.Contains("section_name = af_electra_flash")) Af_electra_flash(data);
-            foreach (string str in data) if (str.Contains("section_name = af_cristall_flower")) Af_cristall_flower(data);
-            foreach (string str in data) if (str.Contains("section_name = af_electra_sparkler")) Af_electra_sparkler(data);
-            foreach (string str in data) if (str.Contains("section_name = af_dummy_battery")) Af_dummy_battery(data);
-            foreach (string str in data) if (str.Contains("section_name = af_dummy_dummy")) Af_dummy_dummy(data);
-            foreach (string str in data) if (str.Contains("section_name = af_gravi")) Af_gravi(data);
-            foreach (string str in data) if (str.Contains("section_name = af_mincer_meat")) Af_mincer_meat(data);
-            foreach (string str in data) if (str.Contains("section_name = af_vyvert")) Af_vyvert(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_11.43x23_fmj")) Ammo_11_43x23_fmj(data);
-            foreach (string str in data) if (str.Contains("section_name = ammo_5.45x39_fmj")) Ammo_5_45x39_fmj(data);
-            foreach (string str in data) if (str.Contains("section_name = antirad")) Antirad(data);
-            foreach (string str in data) if (str.Contains("section_name = grenade_f1")) Grenade_f1(data);
-
             foreach (string str in data) if (str.Contains("section_name = explosive_barrel")) Explosive_barrel(data);
             foreach (string str in data) if (str.Contains("section_name = explosive_mobiltank")) Explosive_mobiltank(data);
             foreach (string str in data) if (str.Contains("section_name = explosive_barrel_low")) Explosive_barrel_low(data);
             foreach (string str in data) if (str.Contains("section_name = explosive_dinamit")) Explosive_dinamit(data);
             foreach (string str in data) if (str.Contains("section_name = explosive_fuelcan")) Explosive_fuelcan(data);
             foreach (string str in data) if (str.Contains("section_name = explosive_tank")) Explosive_tank(data);
+
+            foreach (string str in data) if (str.Contains("section_name = medkit") && !str.Contains("section_name = medkit_army")) C_Base_Item(data, "medkit");
 
         }
 
@@ -3503,1334 +3506,176 @@ namespace A_Life_converter
             anomaly.Add(resultString);
         }
 
-        //items
-        static void Bread(List<string> objects)
+
+        /// <summary>
+        /// Анализ мутантов 
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="mutant_name"></param>
+        static void C_Base_Monster(List<string> objects, string mutant_name)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string distance = "";
+            string health = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = bread"))
+                if (str.Contains("section_name = " + mutant_name))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
+                    continue;
+                }
+                if (str.Contains("distance") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("distance = ", "");
+                    distance = st;
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("monsters\\dog\\", "");
+                    st = st.Replace("monsters\\flesh\\", "");
+                    st = st.Replace("monsters\\mutant_boar\\", "");
+                    st = st.Replace("monsters\\pseudodog\\", "");
+                    visual_name = st;
+                    continue;
+                }
+                if (str.Contains("health") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("health = ", "");
+                    health = st;
                     continue;
                 }
             }
+
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            resultString += distance + 'f' + ',' + ':';
+            resultString += health + 'f' + ',' + ':';
+            monster.Add(resultString);
         }
-        static void Kolbasa(List<string> objects)
+
+        /// <summary>
+        /// Анализ Item'ов
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="item_name"></param>
+        static void C_Base_Item(List<string> objects, string item_name)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = kolbasa"))
+                if (str.Contains("section_name = " + item_name))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("food\\", "");
+                    st = st.Replace("Weapons\\vodka\\", "");
+                    st = st.Replace("equipments\\", "");
+                    st = st.Replace("physics\\anomaly\\", "");
+                    st = st.Replace("weapons\\ak-74u\\", "");
+                    st = st.Replace("weapons\\kolbasa\\", "");
+                    st = st.Replace("weapons\\ammo\\", "");
+                    st = st.Replace("weapons\\bm_16\\", "");
+                    st = st.Replace("weapons\\bred\\", "");
+                    st = st.Replace("weapons\\pm\\", "");
+                    st = st.Replace("weapons\\walter_99\\", "");
+                    visual_name = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_ak74u(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_ak74u"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_9x18_fmj(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_9x18_fmj"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_pm(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_pm"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_9x18_pmm(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_9x18_pmm"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Bandage(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = bandage"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_blood(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_blood"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Conserva(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = conserva"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Vodka(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = vodka"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Energy_drink(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = energy_drink"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_bm16(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_bm16"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_12x70_buck(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_12x70_buck"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Medkit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = medkit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_medusa(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_medusa"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_electra_sparkler(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_electra_sparkler"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_walther(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_walther"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_9x19_fmj(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_9x19_fmj"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_electra_flash(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_electra_flash"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_cristall_flower(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_cristall_flower"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Medkit_army(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = medkit_army"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Quest_case_01(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = quest_case_01"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Outfit_bandit_m1(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = outfit_bandit_m1"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Bandit_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = bandit_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_dummy_battery(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_dummy_battery"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_dummy_dummy(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_dummy_dummy"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_gravi(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_gravi"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_mincer_meat(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_mincer_meat"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_vyvert(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_vyvert"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_11_43x23_fmj(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_11.43x23_fmj"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_5_45x39_fmj(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_5.45x39_fmj"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Antirad(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = antirad"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Grenade_f1(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = grenade_f1"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
             items.Add(resultString);
         }
 
-        static void Af_ameba_mica(List<string> objects)
+
+        //Explosive
+        /*
+        static void Explosive_mobiltank(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = af_ameba_mica"))
+                if (str.Contains("section_name = explosive_mobiltank"))
                 {
                     string st = str.Replace("section_name = ", "");
                     resultData.Add(st);
@@ -4863,14 +3708,14 @@ namespace A_Life_converter
             }
             string resultString = "";
             foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
+            explosive.Add(resultString);
         }
-        static void Af_ameba_slug(List<string> objects)
+        static void Explosive_barrel(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = af_ameba_slug"))
+                if (str.Contains("section_name = explosive_barrel"))
                 {
                     string st = str.Replace("section_name = ", "");
                     resultData.Add(st);
@@ -4903,2294 +3748,535 @@ namespace A_Life_converter
             }
             string resultString = "";
             foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_dummy_glassbeads(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_dummy_glassbeads"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_dummy_pellicle(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_dummy_pellicle"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_dummy_spring(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_dummy_spring"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_electra_moonlight(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_electra_moonlight"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_fireball(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_fireball"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_fuzz_kolobok(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_fuzz_kolobok"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_gold_fish(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_gold_fish"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_night_star(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_night_star"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Af_rusty_sea_urchin(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = af_rusty_sea-urchin"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_11_43x23_hydro(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_11.43x23_hydro"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_12x76_dart(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_12x76_dart"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_12x76_zhekan(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_12x76_zhekan"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_5_45x39_ap(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_5.45x39_ap"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_5_56x45_ap(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_5.56x45_ap"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_5_56x45_ss190(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_5.56x45_ss190"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_9x19_pbp(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_9x19_pbp"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_9x39_pab9(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_9x39_pab9"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_og_7b(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_og-7b"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Ammo_vog_25(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = ammo_vog-25"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Bread_a(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = bread_a"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Dolg_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = dolg_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Exo_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = exo_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Decoder(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = decoder"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Military_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = military_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Monolit_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = monolit_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Medkit_scientic(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = medkit_scientic"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_abakan(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_abakan"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_ak74(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_ak74"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_ak74_m1(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_ak74_m1"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_binoc(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_binoc"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_groza(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_groza"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_lr300(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_lr300"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_lr300_m1(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_lr300_m1"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_mp5(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_mp5"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_rg_6(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_rg-6"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_rpg7(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_rpg7"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Wpn_vintorez(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = wpn_vintorez"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Guitar_a(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = guitar_a"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Pri_decoder_documents(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = pri_decoder_documents"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Svoboda_heavy_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = svoboda_heavy_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Svoboda_light_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = svoboda_light_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Hunters_toz(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = hunters_toz"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Specops_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = specops_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Stalker_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = stalker_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Grenade_rgd5(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = grenade_rgd5"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Killer_outfit(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = killer_outfit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Hand_radio(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = hand_radio"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Quest_case_02(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = quest_case_02"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
-        }
-        static void Bar_document4(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = dar_document4"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            items.Add(resultString);
+            explosive.Add(resultString);
         }
 
-        //monster
-        static void Dog_strong(List<string> objects)
+
+        */
+        /// <summary>
+        /// Анализ и преобразование взрывающихся канистр
+        /// </summary>
+        /// <param name="objects">Список строк в 1 блоке</param>
+        static void Explosive_mobiltank(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = dog_strong"))
+                if (str.Contains("section_name = explosive_mobiltank"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Dog_normal(List<string> objects)
+        /// <summary>
+        /// Анализ и преобразование взрывающихся бочек
+        /// </summary>
+        /// <param name="objects">Список строк в 1 блоке</param>
+        static void Explosive_barrel(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = dog_normal"))
+                if (str.Contains("section_name = explosive_barrel"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Pseudodog_weak(List<string> objects)
+        static void Explosive_barrel_low(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = pseudodog_weak"))
+                if (str.Contains("section_name = explosive_barrel_low"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Boar_normal(List<string> objects)
+        static void Explosive_dinamit(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = boar_normal"))
+                if (str.Contains("section_name = explosive_dinamit"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Dog_weak(List<string> objects)
+        static void Explosive_fuelcan(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = dog_weak"))
+                if (str.Contains("section_name = explosive_fuelcan"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Boar_weak(List<string> objects)
+        static void Explosive_tank(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = boar_weak"))
+                if (str.Contains("section_name = explosive_tank"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Flesh_weak(List<string> objects)
+
+        //разрушаемые объекты
+
+        /*
+        static void Physic_destroyable_object(List<string> objects)
         {
             List<string> resultData = new List<string>();
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = flesh_weak"))
+                if (str.Contains("section_name = physic_destroyable_object"))
                 {
                     string st = str.Replace("section_name = ", "");
                     resultData.Add(st);
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name"))
                 {
                     string st = str.Replace("name = ", "");
                     resultData.Add(st);
@@ -7208,545 +4294,491 @@ namespace A_Life_converter
                     resultData.Add(st);
                     continue;
                 }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("visual_name = ", "");
                     resultData.Add(st);
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass += st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item += st;
                     continue;
                 }
             }
             string resultString = "";
             foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            item = item.Replace(",", ";");
+            if (mass == null) mass = "10";
+            if (item == null) item = "empty";
+            resultString += mass + ",";
+            resultString += item + ",";
+            explosive.Add(resultString);
         }
-        static void Bloodsucker_normal(List<string> objects)
+        */
+
+        /// <summary>
+        /// Анализ и преобразование разрушаемых объектов и сюрпрайз боксов
+        /// </summary>
+        /// <param name="objects">Список строк в 1 блоке</param>
+        static void Physic_destroyable_object(List<string> objects)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string item = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = bloodsucker_normal"))
+                if (str.Contains("section_name = physic_destroyable_object"))
                 {
                     string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = st;
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = st;
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
+                if (str.Contains("visual_name") && !str.Contains("upd:")) 
                 {
                     string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    st = st.Replace("physics\\box\\", "");
+                    st = st.Replace("physics\\decor\\", "");
+                    st = st.Replace("physics\\door\\", "");
+                    st = st.Replace("physics\\small_trash\\", "");
+                    st = st.Replace("visual_physics\\balon\\", "");
+                    st = st.Replace("physics\\balon\\", "");
+                    visual_name = st;
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("mass") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("mass = ", "");
+                    mass = st;
+                    continue;
+                }
+                if (str.Contains("items") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("items = ", "");
+                    item = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            item = item.Replace(",", ";");
+            if (mass == "") mass = "10";
+            if (item == "") item = "empty";
+            resultString += mass + 'f' + ',' + ':';
+            resultString += '&' + item + '&' + ',' + ':';
+            explosive.Add(resultString);
         }
-        static void Bloodsucker_strong(List<string> objects)
+
+
+        //all other classes....????
+        static void Inventory_box(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = bloodsucker_strong"))
+                if (str.Contains("section_name = inventory_box"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("distance") && !str.Contains("upd:"))
+                if (str.Contains("cfg") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("health") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Boar_strong(List<string> objects)
+        static void M_trader(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = boar_strong"))
+                if (str.Contains("section_name = m_trader"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("distance") && !str.Contains("upd:"))
+                if (str.Contains("cfg"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("money") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
+
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Flesh_normal(List<string> objects)
+        static void Space_restrictor(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = flesh_normal"))
+                if (str.Contains("section_name = space_restrictor"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("health") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Gigant_normal(List<string> objects)
+        static void M_flesh_e(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = gigant_normal"))
+                if (str.Contains("section_name = m_flesh_e"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("health") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Gigant_strong(List<string> objects)
+        static void Smart_terrain(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = gigant_strong"))
+                if (str.Contains("section_name = smart_terrain"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("health") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
+
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Snork_jumper(List<string> objects)
+        static void Helicopter(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = snork_jumper"))
+                if (str.Contains("section_name = helicopter"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("distance") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("motion_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
+                    continue;
+                }
+                if (str.Contains("engine_sound") && !str.Contains("upd:"))
+                {
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Snork_normal(List<string> objects)
+
+        static void Level_changer(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = snork_normal"))
+                if (str.Contains("section_name = level_changer"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
+                if (str.Contains("shape0:type") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("health") && !str.Contains("upd:"))
+                if (str.Contains("dest_level_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Snork_outdoor(List<string> objects)
+        static void M_crow(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = snork_outdoor"))
+                if (str.Contains("section_name = m_crow"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("health") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.Add(resultString);
+
+
         }
-        static void Snork_strong(List<string> objects)
+        static void Respawn(List<string> objects)
         {
             List<string> resultData = new List<string>();
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = snork_strong"))
+                if (str.Contains("section_name = respawn"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
+                if (str.Contains("respawn_section") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("health") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
+                    resultData.Add(str);
                     continue;
                 }
             }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            monster.
+
+
+        }
+
+
+    }
+}
