@@ -112,10 +112,10 @@ namespace A_Life_converter
 
             File.AppendAllLines(@path + "physic_object.txt", m_physic_object);
             File.AppendAllLines(@path + "lights_hanging_lamp.txt", m_lights_hanging_lamp);
-            File.AppendAllLines(@path + "items.txt", m_items);
+            File.AppendAllLines(@path + "items.txt", m_items);                         //.xlsx 
             File.AppendAllLines(@path + "stalker.txt", m_stalker);
-            File.AppendAllLines(@path + "monster.txt", m_monster);
-            File.AppendAllLines(@path + "anomaly.txt", m_anomaly);
+            File.AppendAllLines(@path + "monster.txt", m_monster);                     //.xlsx
+            File.AppendAllLines(@path + "anomaly.txt", m_anomaly);                     //.xlsx
             File.AppendAllLines(@path + "explosive.txt", m_explosive);
             File.AppendAllLines(@path + "physic_destroyable_object.txt", m_explosive); //.xlsx
             File.AppendAllLines(@path + "physic_destroyable_object.csv", m_explosive);
@@ -163,8 +163,6 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = pseudodog_strong"))           C_Base_Monster(data, "pseudodog_strong");
             foreach (string str in data) if (str.Contains("section_name = gunslinger_flash"))           C_Base_Monster(data, "gunslinger_flash");
             foreach (string str in data) if (str.Contains("section_name = controller_tubeman"))         C_Base_Monster(data, "controller_tubeman");
-
-
             foreach (string str in data) if (str.Contains("section_name = bread"))                      C_Base_Item(data, "bread");
             foreach (string str in data) if (str.Contains("section_name = af_ameba_mica"))              C_Base_Item(data, "af_ameba_mica");
             foreach (string str in data) if (str.Contains("section_name = af_ameba_slug"))              C_Base_Item(data, "af_ameba_slug");
@@ -249,6 +247,13 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = antirad"))                    C_Base_Item(data, "antirad");
             foreach (string str in data) if (str.Contains("section_name = grenade_f1"))                 C_Base_Item(data, "grenade_f1");
 
+            foreach (string str in data) if (str.Contains("section_name = explosive_barrel"))           C_Base_Explosive(data, "explosive_barrel");
+            foreach (string str in data) if (str.Contains("section_name = explosive_mobiltank"))        C_Base_Explosive(data, "explosive_mobiltank");
+            foreach (string str in data) if (str.Contains("section_name = explosive_barrel_low"))       C_Base_Explosive(data, "explosive_barrel_low");
+            foreach (string str in data) if (str.Contains("section_name = explosive_dinamit"))          C_Base_Explosive(data, "explosive_dinamit");
+            foreach (string str in data) if (str.Contains("section_name = explosive_fuelcan"))          C_Base_Explosive(data, "explosive_fuelcan");
+            foreach (string str in data) if (str.Contains("section_name = explosive_tank"))             C_Base_Explosive(data, "explosive_tank");
+
 
             foreach (string str in data) if (str.Contains("section_name = zone_mosquito_bald_weak")) Zone_mosquito_bald_weak(data);
             foreach (string str in data) if (str.Contains("section_name = zone_radioactive_killing")) Zone_radioactive_killing(data);
@@ -291,12 +296,7 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = zone_zharka_static_weak")) Zone_zharka_static_weak(data);
             foreach (string str in data) if (str.Contains("section_name = fireball_zone")) Fireball_zone(data);
 
-            foreach (string str in data) if (str.Contains("section_name = explosive_barrel")) Explosive_barrel(data);
-            foreach (string str in data) if (str.Contains("section_name = explosive_mobiltank")) Explosive_mobiltank(data);
-            foreach (string str in data) if (str.Contains("section_name = explosive_barrel_low")) Explosive_barrel_low(data);
-            foreach (string str in data) if (str.Contains("section_name = explosive_dinamit")) Explosive_dinamit(data);
-            foreach (string str in data) if (str.Contains("section_name = explosive_fuelcan")) Explosive_fuelcan(data);
-            foreach (string str in data) if (str.Contains("section_name = explosive_tank")) Explosive_tank(data);
+
 
             foreach (string str in data) if (str.Contains("section_name = medkit") && !str.Contains("section_name = medkit_army")) C_Base_Item(data, "medkit");
 
@@ -1680,7 +1680,6 @@ namespace A_Life_converter
             foreach (string st in resultData) resultString += st + ",";
             anomaly.Add(resultString);
         }
-
         static void Zone_burning_fuzz_strong(List<string> objects)
         {
             List<string> resultData = new List<string>();
@@ -3667,184 +3666,22 @@ namespace A_Life_converter
             items.Add(resultString);
         }
 
-
-        //Explosive
-        /*
-        static void Explosive_mobiltank(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_mobiltank"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            explosive.Add(resultString);
-        }
-        static void Explosive_barrel(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_barrel"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            explosive.Add(resultString);
-        }
-
-
-        */
         /// <summary>
-        /// Анализ и преобразование взрывающихся канистр
+        /// Анализ аномальных зон
         /// </summary>
-        /// <param name="objects">Список строк в 1 блоке</param>
-        static void Explosive_mobiltank(List<string> objects)
+        /// <param name="objects"></param>
+        /// <param name="anomaly_name"></param>
+        static void C_Base_Anomaly_Zone(List<string> objects, string anomaly_name)
         {
-            string section_name = "";
-            string name = "";
-            string position = "";
-            string direction = "";
-            string visual_name = "";
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_mobiltank"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    name = st;
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    string[] pos = st.Split(',');
-                    for (int i = 0; i < pos.Length; i++)
-                    {
-                        pos[i] = pos[i] + "f,:";
-                        position += pos[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    string[] dir = st.Split(',');
-                    for (int i = 0; i < dir.Length; i++)
-                    {
-                        dir[i] = dir[i] + "f,:";
-                        direction += dir[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass = st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item = st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            resultString += '&' + visual_name + '&' + ',' + ':';
-            resultString += '&' + section_name + '&' + ',' + ':';
-            resultString += '&' + name + '&' + ',' + ':';
-            resultString += position;
-            resultString += direction;
-            item = item.Replace(",", ";");
-            if (mass == "") mass = "10";
-            if (item == "") item = "empty";
-            resultString += mass + 'f' + ',' + ':';
-            resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
+
         }
+
         /// <summary>
-        /// Анализ и преобразование взрывающихся бочек
+        /// Анализ взрывающихся объектов
         /// </summary>
-        /// <param name="objects">Список строк в 1 блоке</param>
-        static void Explosive_barrel(List<string> objects)
+        /// <param name="objects"></param>
+        /// <param name="object_name"></param>
+        static void C_Base_Explosive(List<string> objects, string object_name)
         {
             string section_name = "";
             string name = "";
@@ -3855,7 +3692,7 @@ namespace A_Life_converter
             string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = explosive_barrel"))
+                if (str.Contains("section_name = " + object_name))
                 {
                     string st = str.Replace("section_name = ", "");
                     section_name = st;
@@ -3927,405 +3764,9 @@ namespace A_Life_converter
             resultString += '&' + item + '&' + ',' + ':';
             explosive.Add(resultString);
         }
-        static void Explosive_barrel_low(List<string> objects)
-        {
-            string section_name = "";
-            string name = "";
-            string position = "";
-            string direction = "";
-            string visual_name = "";
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_barrel_low"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    name = st;
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    string[] pos = st.Split(',');
-                    for (int i = 0; i < pos.Length; i++)
-                    {
-                        pos[i] = pos[i] + "f,:";
-                        position += pos[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    string[] dir = st.Split(',');
-                    for (int i = 0; i < dir.Length; i++)
-                    {
-                        dir[i] = dir[i] + "f,:";
-                        direction += dir[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass = st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item = st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            resultString += '&' + visual_name + '&' + ',' + ':';
-            resultString += '&' + section_name + '&' + ',' + ':';
-            resultString += '&' + name + '&' + ',' + ':';
-            resultString += position;
-            resultString += direction;
-            item = item.Replace(",", ";");
-            if (mass == "") mass = "10";
-            if (item == "") item = "empty";
-            resultString += mass + 'f' + ',' + ':';
-            resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
-        }
-        static void Explosive_dinamit(List<string> objects)
-        {
-            string section_name = "";
-            string name = "";
-            string position = "";
-            string direction = "";
-            string visual_name = "";
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_dinamit"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    name = st;
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    string[] pos = st.Split(',');
-                    for (int i = 0; i < pos.Length; i++)
-                    {
-                        pos[i] = pos[i] + "f,:";
-                        position += pos[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    string[] dir = st.Split(',');
-                    for (int i = 0; i < dir.Length; i++)
-                    {
-                        dir[i] = dir[i] + "f,:";
-                        direction += dir[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass = st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item = st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            resultString += '&' + visual_name + '&' + ',' + ':';
-            resultString += '&' + section_name + '&' + ',' + ':';
-            resultString += '&' + name + '&' + ',' + ':';
-            resultString += position;
-            resultString += direction;
-            item = item.Replace(",", ";");
-            if (mass == "") mass = "10";
-            if (item == "") item = "empty";
-            resultString += mass + 'f' + ',' + ':';
-            resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
-        }
-        static void Explosive_fuelcan(List<string> objects)
-        {
-            string section_name = "";
-            string name = "";
-            string position = "";
-            string direction = "";
-            string visual_name = "";
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_fuelcan"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    name = st;
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    string[] pos = st.Split(',');
-                    for (int i = 0; i < pos.Length; i++)
-                    {
-                        pos[i] = pos[i] + "f,:";
-                        position += pos[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    string[] dir = st.Split(',');
-                    for (int i = 0; i < dir.Length; i++)
-                    {
-                        dir[i] = dir[i] + "f,:";
-                        direction += dir[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass = st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item = st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            resultString += '&' + visual_name + '&' + ',' + ':';
-            resultString += '&' + section_name + '&' + ',' + ':';
-            resultString += '&' + name + '&' + ',' + ':';
-            resultString += position;
-            resultString += direction;
-            item = item.Replace(",", ";");
-            if (mass == "") mass = "10";
-            if (item == "") item = "empty";
-            resultString += mass + 'f' + ',' + ':';
-            resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
-        }
-        static void Explosive_tank(List<string> objects)
-        {
-            string section_name = "";
-            string name = "";
-            string position = "";
-            string direction = "";
-            string visual_name = "";
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = explosive_tank"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    name = st;
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    string[] pos = st.Split(',');
-                    for (int i = 0; i < pos.Length; i++)
-                    {
-                        pos[i] = pos[i] + "f,:";
-                        position += pos[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    string[] dir = st.Split(',');
-                    for (int i = 0; i < dir.Length; i++)
-                    {
-                        dir[i] = dir[i] + "f,:";
-                        direction += dir[i];
-                    }
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass = st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item = st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            resultString += '&' + visual_name + '&' + ',' + ':';
-            resultString += '&' + section_name + '&' + ',' + ':';
-            resultString += '&' + name + '&' + ',' + ':';
-            resultString += position;
-            resultString += direction;
-            item = item.Replace(",", ";");
-            if (mass == "") mass = "10";
-            if (item == "") item = "empty";
-            resultString += mass + 'f' + ',' + ':';
-            resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
-        }
-
-        //разрушаемые объекты
-
-        /*
-        static void Physic_destroyable_object(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            string item = "";
-            string mass = "";
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = physic_destroyable_object"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("mass") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("mass = ", "");
-                    mass += st;
-                    continue;
-                }
-                if (str.Contains("items") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("items = ", "");
-                    item += st;
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            item = item.Replace(",", ";");
-            if (mass == null) mass = "10";
-            if (item == null) item = "empty";
-            resultString += mass + ",";
-            resultString += item + ",";
-            explosive.Add(resultString);
-        }
-        */
 
         /// <summary>
-        /// Анализ и преобразование разрушаемых объектов и сюрпрайз боксов
+        /// Анализ разрушаемых объектов и сюрпрайз боксов
         /// </summary>
         /// <param name="objects">Список строк в 1 блоке</param>
         static void Physic_destroyable_object(List<string> objects)
