@@ -54,7 +54,9 @@ namespace A_Life_converter
             {
                 if (st.Contains("[") && st.Contains("]"))
                 {
-                    if (st.Contains("0") || st.Contains("1") || st.Contains("2") || st.Contains("3") || st.Contains("4") || st.Contains("5") || st.Contains("6") || st.Contains("7") || st.Contains("8") || st.Contains("9"))
+                    if (st.Contains("0") || st.Contains("1") || st.Contains("2") || st.Contains("3") || st.Contains("4") || st.Contains("5") || st.Contains("6") || st.Contains("7") || st.Contains("8") || st.Contains("9")
+                        && !st.Contains("[ph_sound1]") && !st.Contains("@")
+                        )
                     {
                         DataConverter(str);
                         str.Clear();
@@ -116,7 +118,7 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = m_trader")) M_trader(data);
             foreach (string str in data) if (str.Contains("section_name = space_restrictor")) Space_restrictor(data);
             foreach (string str in data) if (str.Contains("section_name = m_flesh_e")) M_flesh_e(data);
-            foreach (string str in data) if (str.Contains("section_name = stalker")) Stalker(data);
+            foreach (string str in data) if (str.Contains("section_name = stalker")) C_Base_Stalker(data, "stalker");
             foreach (string str in data) if (str.Contains("section_name = smart_terrain")) Smart_terrain(data);
             foreach (string str in data) if (str.Contains("section_name = helicopter")) Helicopter(data);
             foreach (string str in data) if (str.Contains("section_name = physic_destroyable_object")) Physic_destroyable_object(data);
@@ -124,6 +126,10 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = m_crow")) M_crow(data);
             foreach (string str in data) if (str.Contains("section_name = respawn")) Respawn(data);
             foreach (string str in data) if (str.Contains("section_name = inventory_box")) Inventory_box(data);
+
+
+
+            foreach (string str in data) if (str.Contains("section_name = stalker"))                    C_Base_Stalker(data, "stalker");
 
             foreach (string str in data) if (str.Contains("section_name = dog_weak"))                   C_Base_Monster(data, "dog_weak");
             foreach (string str in data) if (str.Contains("section_name = boar_weak"))                  C_Base_Monster(data, "boar_weak");
@@ -392,66 +398,13 @@ namespace A_Life_converter
             foreach (string st in resultData) resultString += st + ",";
             lights_hanging_lamp.Add(resultString);
         }
-        //all npc
-        static void Stalker(List<string> objects)
-        {
-            List<string> resultData = new List<string>();
-            foreach (string str in objects)
-            {
-                if (str.Contains("section_name = stalker"))
-                {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("position") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("position = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("direction") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("money") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("money = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-                if (str.Contains("health") && !str.Contains("upd:"))
-                {
-                    string st = str.Replace("health = ", "");
-                    resultData.Add(st);
-                    continue;
-                }
-            }
-            string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
-            stalker.Add(resultString);
-        }
-
+        
         /// <summary>
-        /// Анализ мутантов 
+        /// Анализ сталкеров
         /// </summary>
         /// <param name="objects"></param>
-        /// <param name="mutant_name"></param>
-        static void C_Base_Monster(List<string> objects, string mutant_name)
+        /// <param name="stalker_name"></param>
+        static void C_Base_Stalker(List<string> objects, string stalker_name)
         {
             string section_name = "";
             string name = "";
@@ -459,19 +412,25 @@ namespace A_Life_converter
             string direction = "";
             string visual_name = "";
             string distance = "";
+            string money = "";
+            string character_profile = "";
             string health = "";
+            string items = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = " + mutant_name))
+                if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
+                    visual_name = SetVisualName(str);
+                    continue;
+                }
+                if (str.Contains("section_name = " + stalker_name))
+                {
+                    section_name = SectionName(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    name = st;
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
@@ -498,24 +457,123 @@ namespace A_Life_converter
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    distance = st;
+                    distance = SetDistance(str);
                     continue;
                 }
-                if (str.Contains("visual_name") && !str.Contains("upd:"))
+                if (str.Contains("money") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("monsters\\dog\\", "");
-                    st = st.Replace("monsters\\flesh\\", "");
-                    st = st.Replace("monsters\\mutant_boar\\", "");
-                    st = st.Replace("monsters\\pseudodog\\", "");
-                    visual_name = st;
+                    money = SetCharacter(str);
+                    continue;
+                }
+                if (str.Contains("character_profile") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("character_profile = ", "");
+                    character_profile = st;
                     continue;
                 }
                 if (str.Contains("health") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("health = ", "");
-                    health = st;
+                    health = SetHealth(str);
+                    continue;
+                }
+                if (str.Contains("[spawn]") && !str.Contains("upd:"))
+                {
+                    int indexNullitem = 0;
+                    int indexEndItemlist = 0;
+                    for (int i = 0; i < objects.Count; i++)
+                    {
+                        if (str.Contains("[spawn]") && !str.Contains("upd:"))
+                        {
+                            indexNullitem = ++i;
+                            continue;
+                        }
+                        if (str.Contains("END") && !str.Contains("upd:") && !str.Contains("custom_data = <<END") && !str.Contains("<<END"))
+                        {
+                            indexEndItemlist = --i;
+                            break;
+                        }
+                    }
+                    List<string> itemList = new List<string>();
+                    for (int j = indexNullitem; j < indexEndItemlist; j++) itemList.Add(objects[j]);
+                    items = GetItems(itemList);
+                    continue;
+                }
+            }
+            string resultString = "";
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            resultString += distance + 'f' + ',' + ':';
+            resultString += money + 'f' + ',' + ':';
+            resultString += health + 'f' + ',' + ':';
+            resultString += '&' + character_profile + '&' + ',' + ':';
+            resultString += '&' + items + '&' + ',' + ':';
+            stalker.Add(resultString);
+        }
+
+        /// <summary>
+        /// Анализ мутантов 
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="mutant_name"></param>
+        static void C_Base_Monster(List<string> objects, string mutant_name)
+        {
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string distance = "";
+            string health = "";
+            foreach (string str in objects)
+            {
+                if (str.Contains("section_name = " + mutant_name))
+                {
+                    section_name = SectionName(str);
+                    continue;
+                }
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
+                {
+                    name = ObjectName(str);
+                    continue;
+                }
+                if (str.Contains("position") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("position = ", "");
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
+                    continue;
+                }
+                if (str.Contains("direction") && !str.Contains("upd:"))
+                {
+                    string st = str.Replace("direction = ", "");
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
+                    continue;
+                }
+                if (str.Contains("distance") && !str.Contains("upd:"))
+                {
+                    distance = SetDistance(str);
+                    continue;
+                }
+                if (str.Contains("visual_name") && !str.Contains("upd:"))
+                {
+                    visual_name = SetVisualName(str);
+                    continue;
+                }
+                if (str.Contains("health") && !str.Contains("upd:"))
+                {
+                    health = SetHealth(str);
                     continue;
                 }
             }
@@ -547,14 +605,12 @@ namespace A_Life_converter
             {
                 if (str.Contains("section_name = " + item_name))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
+                    section_name = SectionName(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    name = st;
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
@@ -581,19 +637,7 @@ namespace A_Life_converter
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("food\\", "");
-                    st = st.Replace("Weapons\\vodka\\", "");
-                    st = st.Replace("equipments\\", "");
-                    st = st.Replace("physics\\anomaly\\", "");
-                    st = st.Replace("weapons\\ak-74u\\", "");
-                    st = st.Replace("weapons\\kolbasa\\", "");
-                    st = st.Replace("weapons\\ammo\\", "");
-                    st = st.Replace("weapons\\bm_16\\", "");
-                    st = st.Replace("weapons\\bred\\", "");
-                    st = st.Replace("weapons\\pm\\", "");
-                    st = st.Replace("weapons\\walter_99\\", "");
-                    visual_name = st;
+                    visual_name = SetVisualName(str);
                     continue;
                 }
             }
@@ -627,14 +671,12 @@ namespace A_Life_converter
             {
                 if (str.Contains("section_name = " + anomaly_name))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
+                    section_name = SectionName(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    name = st;
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
@@ -661,8 +703,7 @@ namespace A_Life_converter
                 }
                 if (str.Contains("distance") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("distance = ", "");
-                    distance = st;
+                    distance = SetDistance(str);
                     continue;
                 }
                 if (str.Contains("shape0:type") && !str.Contains("upd:"))
@@ -728,14 +769,12 @@ namespace A_Life_converter
             {
                 if (str.Contains("section_name = " + object_name))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
+                    section_name = SectionName(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    name = st;
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
@@ -762,14 +801,7 @@ namespace A_Life_converter
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
+                    visual_name = SetVisualName(str);
                     continue;
                 }
                 if (str.Contains("mass") && !str.Contains("upd:"))
@@ -799,6 +831,8 @@ namespace A_Life_converter
             explosive.Add(resultString);
         }
 
+        
+
         /// <summary>
         /// Анализ разрушаемых объектов и сюрпрайз боксов
         /// </summary>
@@ -816,14 +850,13 @@ namespace A_Life_converter
             {
                 if (str.Contains("section_name = physic_destroyable_object"))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    section_name = st;
+                    section_name = SectionName(str);
                     continue;
                 }
                 if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
                     string st = str.Replace("name = ", "");
-                    name = st;
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
@@ -850,14 +883,7 @@ namespace A_Life_converter
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:")) 
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    st = st.Replace("physics\\box\\", "");
-                    st = st.Replace("physics\\decor\\", "");
-                    st = st.Replace("physics\\door\\", "");
-                    st = st.Replace("physics\\small_trash\\", "");
-                    st = st.Replace("visual_physics\\balon\\", "");
-                    st = st.Replace("physics\\balon\\", "");
-                    visual_name = st;
+                    visual_name = SetVisualName(str);
                     continue;
                 }
                 if (str.Contains("mass") && !str.Contains("upd:"))
@@ -885,6 +911,90 @@ namespace A_Life_converter
             resultString += mass + 'f' + ',' + ':';
             resultString += '&' + item + '&' + ',' + ':';
             explosive.Add(resultString);
+        }
+
+
+        /// <summary>
+        /// Возвращает visual name
+        /// </summary>
+        /// <param name="item">Строка</param>
+        /// <returns></returns>
+        //static string SetVisualName(string item)
+        //{
+        //    item = item.Replace("visual_name = ", "");
+        //    //item = item.Replace("equipments\\", "");
+        //    //item = item.Replace("food\\", "");
+        //    //item = item.Replace("monitemers\\dog\\", "");
+        //    //item = item.Replace("monitemers\\flesh\\", "");
+        //    //item = item.Replace("monitemers\\mutant_boar\\", "");
+        //    //item = item.Replace("monitemers\\pseudodog\\", "");
+        //    //item = item.Replace("physics\\anomaly\\", "");
+        //    //item = item.Replace("physics\\balon\\", "");
+        //    //item = item.Replace("physics\\box\\", "");
+        //    //item = item.Replace("physics\\decor\\", "");
+        //    //item = item.Replace("physics\\door\\", "");
+        //    //item = item.Replace("physics\\small_trash\\", "");
+        //    //item = item.Replace("visual_physics\\balon\\", "");
+        //    //item = item.Replace("weapons\\ak-74u\\", "");
+        //    //item = item.Replace("weapons\\ammo\\", "");
+        //    //item = item.Replace("weapons\\bm_16\\", "");
+        //    //item = item.Replace("weapons\\bred\\", "");
+        //    //item = item.Replace("weapons\\kolbasa\\", "");
+        //    //item = item.Replace("weapons\\pm\\", "");
+        //    //item = item.Replace("Weapons\\vodka\\", "");
+        //    //item = item.Replace("weapons\\walter_99\\", "");
+        //    return item;
+        //}
+
+        static string SetVisualName(string item)
+        {
+            int index = 0;
+            char[] data = item.ToCharArray();
+            for (int i = 0; i < data.Length; i++) if (data[i] == '\\') index = i++;
+            char[] c_data = new char[data.Length - index];
+            for (int i = 0; i < c_data.Length; i++)
+            {
+                int charIndex = index + i;
+                c_data[i] = data[charIndex];
+            }
+            string r_data = new string(c_data);
+            return r_data.Substring(1);
+        }
+        /// <summary>
+        /// Возвращает имя объекта
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        static string ObjectName(string item)
+        {
+            return item = item.Replace("name = ", "");
+        }
+        /// <summary>
+        /// Возвращает имя секции
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        static string SectionName(string item)
+        {
+            return item = item.Replace("section_name = ", "");
+        }
+        static string SetDistance(string item)
+        {
+            return item = item.Replace("distance = ", "");
+        }
+        static string SetHealth(string item)
+        {
+            return item = item.Replace("health = ", "");
+        }
+        static string SetCharacter(string item)
+        {
+            return item = item.Replace("money = ", "");
+        }
+        static string GetItems(List<string> items)
+        {
+            string data = "";
+            foreach(string item in items) data += item + ';';
+            return data;
         }
 
         //all other classes....????
