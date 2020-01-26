@@ -77,31 +77,20 @@ namespace A_Life_converter
 
         static void DataSave(string savePath)
         {
-            string path = savePath + "_";
-            string[] m_physic_object = physic_object.ToArray();
-            string[] m_lights_hanging_lamp = lights_hanging_lamp.ToArray();
-            string[] m_items = items.ToArray();
-            string[] m_stalker = stalker.ToArray();
-            string[] m_monster = monster.ToArray();
-            string[] m_anomaly = anomaly.ToArray();
-            string[] m_explosive = explosive.ToArray();
-            physic_destroyable_object.Sort();
-            string[] m_physic_destroyable_object = physic_destroyable_object.ToArray();
-            Array.Sort(m_physic_destroyable_object);
-
-            File.AppendAllLines(@path + "physic_object.txt", m_physic_object);
-            File.AppendAllLines(@path + "lights_hanging_lamp.txt", m_lights_hanging_lamp);          //.xlsx
-            File.AppendAllLines(@path + "items.txt", m_items);                                      //.xlsx 
-            File.AppendAllLines(@path + "stalker.txt", m_stalker);                                  //.xlsx
-            File.AppendAllLines(@path + "monster.txt", m_monster);                                  //.xlsx
-            File.AppendAllLines(@path + "anomaly.txt", m_anomaly);                                  //.xlsx
-            File.AppendAllLines(@path + "explosive.txt", m_explosive);                              //.xlsx
-            File.AppendAllLines(@path + "physic_destroyable_object.txt", m_explosive);              //.xlsx
+            savePath  += "_";
+            File.AppendAllLines(@savePath + "physic_object.txt", physic_object.ToArray());
+            File.AppendAllLines(@savePath + "lights_hanging_lamp.txt", lights_hanging_lamp.ToArray());          //.xlsx
+            File.AppendAllLines(@savePath + "items.txt", items.ToArray());                                      //.xlsx 
+            File.AppendAllLines(@savePath + "stalker.txt", stalker.ToArray());                                  //.xlsx
+            File.AppendAllLines(@savePath + "monster.txt", monster.ToArray());                                  //.xlsx
+            File.AppendAllLines(@savePath + "anomaly.txt", anomaly.ToArray());                                  //.xlsx
+            File.AppendAllLines(@savePath + "explosive.txt", explosive.ToArray());                              //.xlsx
+            File.AppendAllLines(@savePath + "physic_destroyable_object.txt", physic_destroyable_object.ToArray());              //.xlsx
         }
 
         static void DataConverter(List<string> data)
         {
-            foreach (string str in data) if (str.Contains("section_name = physic_object")) Physic_object(data);
+            
             foreach (string str in data) if (str.Contains("section_name = m_trader")) M_trader(data);
             foreach (string str in data) if (str.Contains("section_name = space_restrictor")) Space_restrictor(data);
             foreach (string str in data) if (str.Contains("section_name = m_flesh_e")) M_flesh_e(data);
@@ -113,10 +102,9 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = respawn")) Respawn(data);
             foreach (string str in data) if (str.Contains("section_name = inventory_box")) Inventory_box(data);
 
+            foreach (string str in data) if (str.Contains("section_name = physic_object"))              C_Base_Physics(data, "physic_object");
             foreach (string str in data) if (str.Contains("section_name = lights_hanging_lamp"))        C_Base_Light(data, "lights_hanging_lamp");
-
             foreach (string str in data) if (str.Contains("section_name = stalker"))                    C_Base_Stalker(data, "stalker");
-
             foreach (string str in data) if (str.Contains("section_name = dog_weak"))                   C_Base_Monster(data, "dog_weak");
             foreach (string str in data) if (str.Contains("section_name = boar_weak"))                  C_Base_Monster(data, "boar_weak");
             foreach (string str in data) if (str.Contains("section_name = flesh_weak"))                 C_Base_Monster(data, "flesh_weak");
@@ -278,54 +266,74 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = medkit") && !str.Contains("section_name = medkit_army")) C_Base_Item(data, "medkit");
         }
 
-        //physic_object
-        static void Physic_object(List<string> objects)
+        /// <summary>
+        /// Анализ физических объектов
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="object_name"></param>
+        static void C_Base_Physics(List<string> objects, string object_name)
         {
-            List<string> resultData = new List<string>();
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string visual_name = "";
+            string mass = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = physic_object"))
+                if (str.Contains("section_name = " + object_name))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = SectionName(str);
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    visual_name = SetVisualName(str);
                     continue;
                 }
                 if (str.Contains("mass") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("mass = ", "");
-                    resultData.Add(st);
+                    mass = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            resultString += mass + 'f' + ',' + ':';
             physic_object.Add(resultString);
         }
-
         /// <summary>
         /// Анализ источников света
         /// </summary>
@@ -933,7 +941,7 @@ namespace A_Life_converter
             if (item == "") item = "empty";
             resultString += mass + 'f' + ',' + ':';
             resultString += '&' + item + '&' + ',' + ':';
-            explosive.Add(resultString);
+            physic_destroyable_object.Add(resultString);
         }
 
         //all other classes....????
@@ -973,8 +981,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_trader(List<string> objects)
         {
@@ -1016,10 +1022,7 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
-
             }
-
-
         }
         static void Space_restrictor(List<string> objects)
         {
@@ -1047,8 +1050,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_flesh_e(List<string> objects)
         {
@@ -1091,8 +1092,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void Smart_terrain(List<string> objects)
         {
@@ -1124,10 +1123,7 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
-
             }
-
-
         }
         static void Helicopter(List<string> objects)
         {
@@ -1170,10 +1166,7 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
-
         static void Level_changer(List<string> objects)
         {
             List<string> resultData = new List<string>();
@@ -1215,8 +1208,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_crow(List<string> objects)
         {
@@ -1259,8 +1250,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void Respawn(List<string> objects)
         {
@@ -1298,8 +1287,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
     }
 }
