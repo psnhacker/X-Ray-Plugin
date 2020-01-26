@@ -1,7 +1,9 @@
 using System;
+using System.Drawing;
 using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace A_Life_converter
 {
@@ -17,8 +19,6 @@ namespace A_Life_converter
         private static List<string> physic_object = new List<string>();
         private static List<string> lights_hanging_lamp = new List<string>();
         private static List<string> physic_destroyable_object = new List<string>();
-
-
         static void Main(string[] args)
         {
             ObjectReplace();
@@ -49,24 +49,15 @@ namespace A_Life_converter
                 Environment.Exit(0); //Выход из приложения
             }
             Console.WriteLine("Файл загружен успешно");
-
             foreach (string st in textFile)
             {
-                if (st.Contains("[") && st.Contains("]"))
+                if (st.Contains("[") && st.Contains("]") 
+                    && Regex.IsMatch(st, @"\d") 
+                    && !Regex.IsMatch(st, @"\p{L}"))
                 {
-                    if (st.Contains("0") || st.Contains("1") || st.Contains("2") || st.Contains("3") || st.Contains("4") || st.Contains("5") || st.Contains("6") || st.Contains("7") || st.Contains("8") || st.Contains("9")
-                        && !st.Contains("[ph_sound1]") && !st.Contains("@")
-                        )
-                    {
-                        DataConverter(str);
-                        str.Clear();
-                        continue;
-                    }
-                    else
-                    {
-                        str.Add(st);
-                        continue;
-                    }
+                    DataConverter(str);
+                    str.Clear();
+                    continue;
                 }
                 else
                 {
@@ -74,8 +65,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
             Console.WriteLine("Строки преобразованы");
             Console.WriteLine("Нажмите Enter для сохранения классов в файлы");
             Console.ReadKey();
@@ -83,9 +72,7 @@ namespace A_Life_converter
             Console.WriteLine("Файлы сохранены!");
             Console.WriteLine("Через несколько секунд файлы появятся в папке приложения");
             Console.ReadKey();
-
         }
-
 
         static void DataSave(string savePath)
         {
@@ -102,23 +89,21 @@ namespace A_Life_converter
             Array.Sort(m_physic_destroyable_object);
 
             File.AppendAllLines(@path + "physic_object.txt", m_physic_object);
-            File.AppendAllLines(@path + "lights_hanging_lamp.txt", m_lights_hanging_lamp);
-            File.AppendAllLines(@path + "items.txt", m_items);                         //.xlsx 
-            File.AppendAllLines(@path + "stalker.txt", m_stalker);
-            File.AppendAllLines(@path + "monster.txt", m_monster);                     //.xlsx
-            File.AppendAllLines(@path + "anomaly.txt", m_anomaly);                     //.xlsx
-            File.AppendAllLines(@path + "explosive.txt", m_explosive);
-            File.AppendAllLines(@path + "physic_destroyable_object.txt", m_explosive); //.xlsx
+            File.AppendAllLines(@path + "lights_hanging_lamp.txt", m_lights_hanging_lamp);          //.xlsx
+            File.AppendAllLines(@path + "items.txt", m_items);                                      //.xlsx 
+            File.AppendAllLines(@path + "stalker.txt", m_stalker);                                  //.xlsx
+            File.AppendAllLines(@path + "monster.txt", m_monster);                                  //.xlsx
+            File.AppendAllLines(@path + "anomaly.txt", m_anomaly);                                  //.xlsx
+            File.AppendAllLines(@path + "explosive.txt", m_explosive);                              //.xlsx
+            File.AppendAllLines(@path + "physic_destroyable_object.txt", m_explosive);              //.xlsx
         }
 
         static void DataConverter(List<string> data)
         {
             foreach (string str in data) if (str.Contains("section_name = physic_object")) Physic_object(data);
-            foreach (string str in data) if (str.Contains("section_name = lights_hanging_lamp")) Lights_hanging_lamp(data);
             foreach (string str in data) if (str.Contains("section_name = m_trader")) M_trader(data);
             foreach (string str in data) if (str.Contains("section_name = space_restrictor")) Space_restrictor(data);
             foreach (string str in data) if (str.Contains("section_name = m_flesh_e")) M_flesh_e(data);
-            foreach (string str in data) if (str.Contains("section_name = stalker")) C_Base_Stalker(data, "stalker");
             foreach (string str in data) if (str.Contains("section_name = smart_terrain")) Smart_terrain(data);
             foreach (string str in data) if (str.Contains("section_name = helicopter")) Helicopter(data);
             foreach (string str in data) if (str.Contains("section_name = physic_destroyable_object")) Physic_destroyable_object(data);
@@ -127,7 +112,7 @@ namespace A_Life_converter
             foreach (string str in data) if (str.Contains("section_name = respawn")) Respawn(data);
             foreach (string str in data) if (str.Contains("section_name = inventory_box")) Inventory_box(data);
 
-
+            foreach (string str in data) if (str.Contains("section_name = lights_hanging_lamp"))        C_Base_Light(data, "lights_hanging_lamp");
 
             foreach (string str in data) if (str.Contains("section_name = stalker"))                    C_Base_Stalker(data, "stalker");
 
@@ -339,66 +324,110 @@ namespace A_Life_converter
             foreach (string st in resultData) resultString += st + ",";
             physic_object.Add(resultString);
         }
-        //lights_hanging_lamp
-        static void Lights_hanging_lamp(List<string> objects)
+
+        /// <summary>
+        /// Анализ источников света
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="lamp_name"></param>
+        static void C_Base_Light(List<string> objects, string lamp_name)
         {
-            List<string> resultData = new List<string>();
+
+            string section_name = "";
+            string name = "";
+            string position = "";
+            string direction = "";
+            string main_color = "";
+            string visual_name = "";
+            string main_brightness = "";
+            string main_range = "";
+            string light_flags = "";
+            string main_cone_angle = "";
             foreach (string str in objects)
             {
-                if (str.Contains("section_name = lights_hanging_lamp"))
+                if (str.Contains("section_name = " + lamp_name))
                 {
-                    string st = str.Replace("section_name = ", "");
-                    resultData.Add(st);
+                    section_name = SectionName(str);
                     continue;
                 }
-                if (str.Contains("name") && !str.Contains("upd:"))
+                if (str.Contains("name") && !str.Contains("upd:") && !str.Contains("skeleton_name") && !str.Contains("visual_name"))
                 {
-                    string st = str.Replace("name = ", "");
-                    resultData.Add(st);
+                    name = ObjectName(str);
                     continue;
                 }
                 if (str.Contains("position") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("position = ", "");
-                    resultData.Add(st);
+                    string[] pos = st.Split(',');
+                    for (int i = 0; i < pos.Length; i++)
+                    {
+                        pos[i] = pos[i] + "f,:";
+                        position += pos[i];
+                    }
                     continue;
                 }
                 if (str.Contains("direction") && !str.Contains("upd:"))
                 {
                     string st = str.Replace("direction = ", "");
-                    resultData.Add(st);
+                    string[] dir = st.Split(',');
+                    for (int i = 0; i < dir.Length; i++)
+                    {
+                        dir[i] = dir[i] + "f,:";
+                        direction += dir[i];
+                    }
                     continue;
                 }
                 if (str.Contains("visual_name") && !str.Contains("upd:"))
                 {
-                    string st = str.Replace("visual_name = ", "");
-                    resultData.Add(st);
+                    visual_name = SetVisualName(str);
                     continue;
                 }
-                if (str.Contains("ambient_radius"))
+                if (str.Contains("main_brightness"))
                 {
-                    string st = str.Replace("ambient_radius = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("main_brightness = ", "");
+                    main_brightness = st;
                     continue;
                 }
                 if (str.Contains("main_cone_angle"))
                 {
                     string st = str.Replace("main_cone_angle = ", "");
-                    resultData.Add(st);
+                    main_cone_angle = st;
                     continue;
                 }
-                if (str.Contains("glow_texture"))
+                if (str.Contains("light_flags"))
                 {
-                    string st = str.Replace("glow_texture = ", "");
-                    resultData.Add(st);
+                    string st = str.Replace("light_flags = ", "");
+                    light_flags = st;
+                    continue;
+                }
+                if (str.Contains("main_range"))
+                {
+                    string st = str.Replace("main_range = ", "");
+                    main_range = st;
+                    continue;
+                }
+                if (str.Contains("main_color") && !str.Contains("main_color_animator "))
+                {
+                    string st = str.Replace("main_color = ", "");
+                    Color color = ColorTranslator.FromHtml(st);
+                    st = color.R + "f,:" + color.G + "f,:" + color.B + "f,:";
+                    main_color = st;
                     continue;
                 }
             }
             string resultString = "";
-            foreach (string st in resultData) resultString += st + ",";
+            resultString += '&' + visual_name + '&' + ',' + ':';
+            resultString += '&' + section_name + '&' + ',' + ':';
+            resultString += '&' + name + '&' + ',' + ':';
+            resultString += position;
+            resultString += direction;
+            resultString += main_color;
+            resultString += main_brightness + 'f' + ',' + ':';
+            resultString += main_range + 'f' + ',' + ':';
+            resultString += main_cone_angle + 'f' + ',' + ':';
+            resultString += '&' + light_flags + '&' + ',' + ':';
             lights_hanging_lamp.Add(resultString);
         }
-        
         /// <summary>
         /// Анализ сталкеров
         /// </summary>
@@ -512,7 +541,6 @@ namespace A_Life_converter
             resultString += '&' + items + '&' + ',' + ':';
             stalker.Add(resultString);
         }
-
         /// <summary>
         /// Анализ мутантов 
         /// </summary>
@@ -588,7 +616,6 @@ namespace A_Life_converter
             resultString += health + 'f' + ',' + ':';
             monster.Add(resultString);
         }
-
         /// <summary>
         /// Анализ Item'ов
         /// </summary>
@@ -649,7 +676,6 @@ namespace A_Life_converter
             resultString += direction;
             items.Add(resultString);
         }
-
         /// <summary>
         /// Анализ аномальных зон
         /// </summary>
@@ -750,7 +776,6 @@ namespace A_Life_converter
             resultString += artefact_spawn_count + 'f' + ',' + ':';
             anomaly.Add(resultString);
         }
-
         /// <summary>
         /// Анализ взрывающихся объектов
         /// </summary>
@@ -830,9 +855,6 @@ namespace A_Life_converter
             resultString += '&' + item + '&' + ',' + ':';
             explosive.Add(resultString);
         }
-
-        
-
         /// <summary>
         /// Анализ разрушаемых объектов и сюрпрайз боксов
         /// </summary>
@@ -913,39 +935,6 @@ namespace A_Life_converter
             explosive.Add(resultString);
         }
 
-
-        /// <summary>
-        /// Возвращает visual name
-        /// </summary>
-        /// <param name="item">Строка</param>
-        /// <returns></returns>
-        //static string SetVisualName(string item)
-        //{
-        //    item = item.Replace("visual_name = ", "");
-        //    //item = item.Replace("equipments\\", "");
-        //    //item = item.Replace("food\\", "");
-        //    //item = item.Replace("monitemers\\dog\\", "");
-        //    //item = item.Replace("monitemers\\flesh\\", "");
-        //    //item = item.Replace("monitemers\\mutant_boar\\", "");
-        //    //item = item.Replace("monitemers\\pseudodog\\", "");
-        //    //item = item.Replace("physics\\anomaly\\", "");
-        //    //item = item.Replace("physics\\balon\\", "");
-        //    //item = item.Replace("physics\\box\\", "");
-        //    //item = item.Replace("physics\\decor\\", "");
-        //    //item = item.Replace("physics\\door\\", "");
-        //    //item = item.Replace("physics\\small_trash\\", "");
-        //    //item = item.Replace("visual_physics\\balon\\", "");
-        //    //item = item.Replace("weapons\\ak-74u\\", "");
-        //    //item = item.Replace("weapons\\ammo\\", "");
-        //    //item = item.Replace("weapons\\bm_16\\", "");
-        //    //item = item.Replace("weapons\\bred\\", "");
-        //    //item = item.Replace("weapons\\kolbasa\\", "");
-        //    //item = item.Replace("weapons\\pm\\", "");
-        //    //item = item.Replace("Weapons\\vodka\\", "");
-        //    //item = item.Replace("weapons\\walter_99\\", "");
-        //    return item;
-        //}
-
         static string SetVisualName(string item)
         {
             int index = 0;
@@ -960,20 +949,10 @@ namespace A_Life_converter
             string r_data = new string(c_data);
             return r_data.Substring(1);
         }
-        /// <summary>
-        /// Возвращает имя объекта
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         static string ObjectName(string item)
         {
             return item = item.Replace("name = ", "");
         }
-        /// <summary>
-        /// Возвращает имя секции
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         static string SectionName(string item)
         {
             return item = item.Replace("section_name = ", "");
@@ -1034,8 +1013,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_trader(List<string> objects)
         {
@@ -1077,10 +1054,7 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
-
             }
-
-
         }
         static void Space_restrictor(List<string> objects)
         {
@@ -1108,8 +1082,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_flesh_e(List<string> objects)
         {
@@ -1152,8 +1124,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void Smart_terrain(List<string> objects)
         {
@@ -1185,10 +1155,7 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
-
             }
-
-
         }
         static void Helicopter(List<string> objects)
         {
@@ -1231,8 +1198,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
 
         static void Level_changer(List<string> objects)
@@ -1276,8 +1241,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void M_crow(List<string> objects)
         {
@@ -1320,8 +1283,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
         static void Respawn(List<string> objects)
         {
@@ -1359,8 +1320,6 @@ namespace A_Life_converter
                     continue;
                 }
             }
-
-
         }
     }
 }
