@@ -1,13 +1,14 @@
+using xrCore;
 using System;
-using System.Drawing;
 using System.IO;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace A_Life_converter
 {
-    class Program
+    class XrayParser : Base_Parser
     {
         const string applicationName = "A-Life converter.exe";
         private static List<string> str = new List<string>();
@@ -935,47 +936,6 @@ namespace A_Life_converter
             explosive.Add(resultString);
         }
 
-        static string SetVisualName(string item)
-        {
-            int index = 0;
-            char[] data = item.ToCharArray();
-            for (int i = 0; i < data.Length; i++) if (data[i] == '\\') index = i++;
-            char[] c_data = new char[data.Length - index];
-            for (int i = 0; i < c_data.Length; i++)
-            {
-                int charIndex = index + i;
-                c_data[i] = data[charIndex];
-            }
-            string r_data = new string(c_data);
-            return r_data.Substring(1);
-        }
-        static string ObjectName(string item)
-        {
-            return item = item.Replace("name = ", "");
-        }
-        static string SectionName(string item)
-        {
-            return item = item.Replace("section_name = ", "");
-        }
-        static string SetDistance(string item)
-        {
-            return item = item.Replace("distance = ", "");
-        }
-        static string SetHealth(string item)
-        {
-            return item = item.Replace("health = ", "");
-        }
-        static string SetCharacter(string item)
-        {
-            return item = item.Replace("money = ", "");
-        }
-        static string GetItems(List<string> items)
-        {
-            string data = "";
-            foreach(string item in items) data += item + ';';
-            return data;
-        }
-
         //all other classes....????
         static void Inventory_box(List<string> objects)
         {
@@ -1013,6 +973,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
         static void M_trader(List<string> objects)
         {
@@ -1054,7 +1016,10 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
+
             }
+
+
         }
         static void Space_restrictor(List<string> objects)
         {
@@ -1082,6 +1047,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
         static void M_flesh_e(List<string> objects)
         {
@@ -1124,6 +1091,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
         static void Smart_terrain(List<string> objects)
         {
@@ -1155,7 +1124,10 @@ namespace A_Life_converter
                     resultData.Add(str);
                     continue;
                 }
+
             }
+
+
         }
         static void Helicopter(List<string> objects)
         {
@@ -1198,6 +1170,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
 
         static void Level_changer(List<string> objects)
@@ -1241,6 +1215,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
         static void M_crow(List<string> objects)
         {
@@ -1283,6 +1259,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
         static void Respawn(List<string> objects)
         {
@@ -1320,6 +1298,8 @@ namespace A_Life_converter
                     continue;
                 }
             }
+
+
         }
     }
 }
